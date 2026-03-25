@@ -1,0 +1,190 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Alexander's Roofing",
+      "url": "https://alexanders-roofing.vercel.app",
+      "competitors": [
+        {
+          "name": "Alexanders Roofing",
+          "url": "https://www.alexandersroofing.com/"
+        },
+        {
+          "name": "Rhino Roofers",
+          "url": "https://rhinoroofers.com/"
+        },
+        {
+          "name": "Beldon Roofing",
+          "url": "https://beldon.com/"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "SOSA Plumber",
+      "url": "https://www.sosaplumbing.com",
+      "competitors": [
+        {
+          "name": "Plumbingsa.com",
+          "url": "https://www.plumbingsa.com"
+        },
+        {
+          "name": "Benjamin Franklin Plumbing San Antonio",
+          "url": "https://www.benjaminfranklinplumbing.com"
+        },
+        {
+          "name": "San Antonio Plumbing Pros",
+          "url": "https://www.saplumbingpros.com"
+        }
+      ]
+    }
+  ],
+  "scores": [
+    {
+      "client_id": 1,
+      "client_url": "https://alexanders-roofing.vercel.app",
+      "score": 90,
+      "pagespeed_mobile": 100,
+      "pagespeed_desktop": 100,
+      "organic_traffic": 0,
+      "organic_traffic_change": 0,
+      "top_keywords": 0,
+      "top_keywords_change": 0,
+      "local_seo": 80,
+      "issues": [
+        "Title length 70 (ideal 30-60)",
+        "Meta description length 194 (ideal 120-160)"
+      ],
+      "timestamp": "2026-03-25T03:42:45.613Z"
+    },
+    {
+      "client_id": 1,
+      "competitor_url": "https://www.texashillcountryroofing.com",
+      "competitor_name": "Texas Hill Country Roofing",
+      "score": 30,
+      "timestamp": "2026-03-25T03:42:46.285Z"
+    },
+    {
+      "client_id": 1,
+      "competitor_url": "https://www.roofer.com",
+      "competitor_name": "Roofer.com San Antonio",
+      "score": 100,
+      "timestamp": "2026-03-25T03:42:54.651Z"
+    },
+    {
+      "client_id": 2,
+      "client_url": "https://www.sosaplumbing.com",
+      "score": 45,
+      "pagespeed_mobile": 90,
+      "pagespeed_desktop": 93,
+      "organic_traffic": 0,
+      "organic_traffic_change": 0,
+      "top_keywords": 0,
+      "top_keywords_change": 0,
+      "local_seo": 65,
+      "issues": [
+        "Title length 67 (ideal 30-60)",
+        "Meta description length 92 (ideal 120-160)",
+        "Missing H1 tag",
+        "Missing H2/H3 heading structure",
+        "2/2 images missing alt text",
+        "Poor internal linking structure"
+      ],
+      "timestamp": "2026-03-25T03:42:55.298Z"
+    },
+    {
+      "client_id": 2,
+      "competitor_url": "https://www.plumbingsa.com",
+      "competitor_name": "Plumbingsa.com",
+      "score": 86,
+      "timestamp": "2026-03-25T03:42:56.403Z"
+    },
+    {
+      "client_id": 2,
+      "competitor_url": "https://www.benjaminfranklinplumbing.com",
+      "competitor_name": "Benjamin Franklin Plumbing San Antonio",
+      "score": 97,
+      "timestamp": "2026-03-25T03:42:57.090Z"
+    },
+    {
+      "client_id": 2,
+      "competitor_url": "https://www.saplumbingpros.com",
+      "competitor_name": "San Antonio Plumbing Pros",
+      "score": 88,
+      "timestamp": "2026-03-25T03:43:07.107Z"
+    },
+    {
+      "client_id": 1,
+      "client_url": "https://alexanders-roofing.vercel.app",
+      "score": 90,
+      "pagespeed_mobile": 100,
+      "pagespeed_desktop": 100,
+      "organic_traffic": 0,
+      "organic_traffic_change": 0,
+      "top_keywords": 0,
+      "top_keywords_change": 0,
+      "local_seo": 80,
+      "issues": [
+        "Title length 70 (ideal 30-60)",
+        "Meta description length 194 (ideal 120-160)"
+      ],
+      "timestamp": "2026-03-25T03:46:21.415Z"
+    },
+    {
+      "client_id": 1,
+      "competitor_url": "https://rhinoroofers.com/",
+      "competitor_name": "Rhino Roofers",
+      "score": 88,
+      "timestamp": "2026-03-25T03:46:22.868Z"
+    },
+    {
+      "client_id": 1,
+      "competitor_url": "https://beldon.com/",
+      "competitor_name": "Beldon Roofing",
+      "score": 85,
+      "timestamp": "2026-03-25T03:46:23.483Z"
+    },
+    {
+      "client_id": 2,
+      "client_url": "https://www.sosaplumbing.com",
+      "score": 45,
+      "pagespeed_mobile": 90,
+      "pagespeed_desktop": 93,
+      "organic_traffic": 0,
+      "organic_traffic_change": 0,
+      "top_keywords": 0,
+      "top_keywords_change": 0,
+      "local_seo": 65,
+      "issues": [
+        "Title length 67 (ideal 30-60)",
+        "Meta description length 92 (ideal 120-160)",
+        "Missing H1 tag",
+        "Missing H2/H3 heading structure",
+        "2/2 images missing alt text",
+        "Poor internal linking structure"
+      ],
+      "timestamp": "2026-03-25T03:46:24.069Z"
+    },
+    {
+      "client_id": 2,
+      "competitor_url": "https://www.plumbingsa.com",
+      "competitor_name": "Plumbingsa.com",
+      "score": 86,
+      "timestamp": "2026-03-25T03:46:25.031Z"
+    },
+    {
+      "client_id": 2,
+      "competitor_url": "https://www.benjaminfranklinplumbing.com",
+      "competitor_name": "Benjamin Franklin Plumbing San Antonio",
+      "score": 97,
+      "timestamp": "2026-03-25T03:46:25.680Z"
+    },
+    {
+      "client_id": 2,
+      "competitor_url": "https://www.saplumbingpros.com",
+      "competitor_name": "San Antonio Plumbing Pros",
+      "score": 71,
+      "timestamp": "2026-03-25T03:46:35.686Z"
+    }
+  ]
+}
