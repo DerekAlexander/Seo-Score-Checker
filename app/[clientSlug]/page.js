@@ -115,6 +115,7 @@ export default function ClientDashboard({ params }) {
               score={selectedClient.currentScore}
               change={scoreChange}
               changePercent={((scoreChange / selectedClient.previousScore) * 100).toFixed(1)}
+              competitors={selectedClient.competitors}
             />
 
             {/* Metrics Grid */}

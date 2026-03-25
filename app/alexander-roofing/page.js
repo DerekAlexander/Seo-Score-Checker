@@ -100,6 +100,7 @@ export default function AlexanderRoofingDashboard() {
               score={selectedClient.currentScore}
               change={scoreChange}
               changePercent={((scoreChange / selectedClient.previousScore) * 100).toFixed(1)}
+              competitors={selectedClient.competitors}
             />
 
             {/* Metrics Grid */}

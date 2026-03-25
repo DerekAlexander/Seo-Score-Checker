@@ -101,7 +101,10 @@ function runAudit(url) {
 
 // Generate realistic mock audit data when Python is unavailable
 function generateMockAudit(url) {
-  const baseScore = 60 + Math.random() * 30 // 60-90 range
+  // Use deterministic scoring based on URL hash instead of random
+  const hashCode = url.split('').reduce((acc, char) => ((acc << 5) - acc) + char.charCodeAt(0), 0)
+  const normalizedHash = Math.abs(hashCode) % 31 // 0-30
+  const baseScore = 60 + normalizedHash // Consistent 60-90 range per URL
   
   return {
     url: url,

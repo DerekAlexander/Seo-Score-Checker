@@ -2,8 +2,16 @@
 
 import { useEffect, useState } from 'react'
 
-export default function ScoreCard({ score, change, changePercent }) {
+export default function ScoreCard({ score, change, changePercent, competitors = [] }) {
   const [animatedScore, setAnimatedScore] = useState(0)
+  
+  // Calculate real competition percentage based on actual competitor scores
+  const competitorPercentage = (() => {
+    if (!competitors || competitors.length === 0) return 0
+    const avgCompetitorScore = competitors.reduce((sum, c) => sum + c.score, 0) / competitors.length
+    const percentageAbove = ((score - avgCompetitorScore) / avgCompetitorScore) * 100
+    return Math.round(percentageAbove)
+  })()
 
   useEffect(() => {
     let start = 0
@@ -84,8 +92,10 @@ export default function ScoreCard({ score, change, changePercent }) {
               <div>
                 <p className="text-gray-400 text-sm mb-2">vs Competitors</p>
                 <div className="flex items-center gap-3">
-                  <div className="text-3xl font-bold text-green-400">+{Math.floor(Math.random() * 15)}%</div>
-                  <p className="text-sm text-gray-400">Above average</p>
+                  <div className={`text-3xl font-bold ${competitorPercentage > 0 ? 'text-green-400' : competitorPercentage < 0 ? 'text-orange-400' : 'text-gray-400'}`}>
+                    {competitorPercentage > 0 ? '+' : ''}{competitorPercentage}%
+                  </div>
+                  <p className="text-sm text-gray-400">{competitorPercentage > 0 ? 'Above' : competitorPercentage < 0 ? 'Below' : 'At'} average</p>
                 </div>
               </div>
             </div>
