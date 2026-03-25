@@ -2,6 +2,8 @@ import { execSync } from 'child_process'
 import fs from 'fs'
 import path from 'path'
 
+export const dynamic = 'force-dynamic'
+
 const dataPath = path.join(process.cwd(), 'data', 'clients.json')
 const scriptPath = path.join(process.cwd(), 'scripts', 'audit-wrapper.py')
 

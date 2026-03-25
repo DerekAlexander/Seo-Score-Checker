@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
+export const dynamic = 'force-dynamic'
+
 const dataPath = path.join(process.cwd(), 'data', 'clients.json')
 
 // Get all client data with latest scores
