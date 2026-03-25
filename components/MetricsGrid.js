@@ -1,5 +1,7 @@
 'use client'
 
+import { Smartphone, Monitor, Users, Key, MapPin, BarChart3 } from 'lucide-react'
+
 const MetricCard = ({ icon, label, value, change, isPercentage = false, requiresAPI = null, isLoading = false }) => {
   const isPositive = change >= 0
   const changeColor = isPositive ? 'text-green-400' : 'text-red-400'
@@ -89,7 +91,7 @@ export default function MetricsGrid({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
       <MetricCard
-        icon="📱"
+        icon={<Smartphone size={32} />}
         label="PageSpeed Mobile"
         value={pageSpeedMobile}
         change={0}
@@ -98,7 +100,7 @@ export default function MetricsGrid({
         isLoading={isLoadingPageSpeed}
       />
       <MetricCard
-        icon="🖥️"
+        icon={<Monitor size={32} />}
         label="PageSpeed Desktop"
         value={pageSpeedDesktop}
         change={0}
@@ -107,21 +109,21 @@ export default function MetricsGrid({
         isLoading={isLoadingPageSpeed}
       />
       <MetricCard
-        icon="👥"
+        icon={<Users size={32} />}
         label="Organic Traffic"
         value={organicTraffic}
         change={organicTrafficChange}
         requiresAPI="Google Search Console API"
       />
       <MetricCard
-        icon="🔑"
+        icon={<Key size={32} />}
         label="Top 10 Keywords"
         value={topKeywords}
         change={topKeywordsChange}
         requiresAPI="SEO Tool (Ahrefs/SEMrush)"
       />
       <MetricCard
-        icon="📍"
+        icon={<MapPin size={32} />}
         label="Local SEO (Estimate)"
         value={localSEO}
         change={0}

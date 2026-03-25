@@ -1,6 +1,7 @@
 'use client'
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts'
+import { LineChart as LineChartIcon } from 'lucide-react'
 
 export default function TrendChart({ data }) {
   const hasEnoughData = data && data.length >= 4
@@ -12,7 +13,7 @@ export default function TrendChart({ data }) {
         <h2 className="text-2xl font-bold text-white mb-4">SEO Score Trend</h2>
         
         <div className="bg-slate-800/50 rounded-lg p-8 text-center border border-amber-500/30">
-          <div className="text-4xl mb-3">📊</div>
+          <div className="mb-3 flex justify-center"><LineChartIcon size={40} className="text-amber-300" /></div>
           <p className="text-amber-300 font-semibold mb-2">Coming Soon</p>
           <p className="text-gray-400 text-sm mb-4">
             Trend data requires at least 4 weeks of audit history.

@@ -1,5 +1,7 @@
 'use client'
 
+import { Medal, MapPin, Crown, Target, Megaphone, TrendingUp } from 'lucide-react'
+
 export default function CompetitorComparison({ clientScore, competitors }) {
   const sortedCompetitors = [...competitors].sort((a, b) => b.score - a.score)
   const averageCompetitorScore = (sortedCompetitors.reduce((a, b) => a + b.score, 0) / sortedCompetitors.length).toFixed(1)
@@ -13,10 +15,10 @@ export default function CompetitorComparison({ clientScore, competitors }) {
   }
 
   const getRankMedal = (rank) => {
-    if (rank === 1) return '🥇'
-    if (rank === 2) return '🥈'
-    if (rank === 3) return '🥉'
-    return '📍'
+    if (rank === 1) return <Medal size={28} className="text-yellow-400" />
+    if (rank === 2) return <Medal size={28} className="text-gray-300" />
+    if (rank === 3) return <Medal size={28} className="text-orange-600" />
+    return <MapPin size={28} className="text-blue-400" />
   }
 
   return (
@@ -31,8 +33,8 @@ export default function CompetitorComparison({ clientScore, competitors }) {
           <p className="text-blue-200 text-sm mb-4">
             {leadDiff > 0 ? `+${leadDiff.toFixed(1)}` : leadDiff.toFixed(1)} vs competitors
           </p>
-          <div className={`text-sm font-semibold ${leadDiff > 0 ? 'text-green-300' : 'text-yellow-300'}`}>
-            {leadDiff > 0 ? '📈 Leading' : '⚠️ Behind'}
+          <div className={`text-sm font-semibold flex items-center gap-2 ${leadDiff > 0 ? 'text-green-300' : 'text-yellow-300'}`}>
+            {leadDiff > 0 ? <><TrendingUp size={16} /> Leading</> : <>⚠️ Behind</>}
           </div>
         </div>
 
@@ -79,7 +81,7 @@ export default function CompetitorComparison({ clientScore, competitors }) {
       {/* Insights */}
       <div className="mt-6 pt-6 border-t border-slate-700 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
-          <p className="text-blue-300 text-sm font-semibold">👑 Market Position</p>
+          <p className="text-blue-300 text-sm font-semibold flex items-center gap-2"><Crown size={16} /> Market Position</p>
           <p className="text-gray-300 text-sm mt-1">
             {clientScore > averageCompetitorScore 
               ? `You're ahead of the competition by ${leadDiff.toFixed(1)} points.`
@@ -89,14 +91,14 @@ export default function CompetitorComparison({ clientScore, competitors }) {
         </div>
 
         <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
-          <p className="text-green-300 text-sm font-semibold">🎯 Opportunity</p>
+          <p className="text-green-300 text-sm font-semibold flex items-center gap-2"><Target size={16} /> Opportunity</p>
           <p className="text-gray-300 text-sm mt-1">
             Target the top competitor's weak areas: keywords, backlinks, and technical SEO.
           </p>
         </div>
 
         <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-4">
-          <p className="text-purple-300 text-sm font-semibold">📢 Strategy</p>
+          <p className="text-purple-300 text-sm font-semibold flex items-center gap-2"><Megaphone size={16} /> Strategy</p>
           <p className="text-gray-300 text-sm mt-1">
             Maintain your lead by consistently improving. +5 pts/month compounds quickly.
           </p>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { TrendingUp, TrendingDown, Check, AlertCircle, X } from 'lucide-react'
 
 export default function ScoreCard({ score, change, changePercent, competitors = [] }) {
   const [animatedScore, setAnimatedScore] = useState(0)
@@ -35,9 +36,15 @@ export default function ScoreCard({ score, change, changePercent, competitors = 
   }
 
   const getStatusText = (score) => {
-    if (score >= 80) return '🟢 Excellent'
-    if (score >= 60) return '🟡 Good'
-    return '🔴 Needs Work'
+    if (score >= 80) return 'Excellent'
+    if (score >= 60) return 'Good'
+    return 'Needs Work'
+  }
+
+  const getStatusIcon = (score) => {
+    if (score >= 80) return <Check className="inline mr-2 text-green-400" size={20} />
+    if (score >= 60) return <AlertCircle className="inline mr-2 text-yellow-400" size={20} />
+    return <X className="inline mr-2 text-red-400" size={20} />
   }
 
   const isPositive = change >= 0
@@ -59,7 +66,7 @@ export default function ScoreCard({ score, change, changePercent, competitors = 
             </div>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-white">{getStatusText(score)}</p>
+            <p className="text-2xl font-bold text-white">{getStatusIcon(score)}{getStatusText(score)}</p>
           </div>
         </div>
 
@@ -71,7 +78,7 @@ export default function ScoreCard({ score, change, changePercent, competitors = 
               <div className={`flex items-baseline gap-2 ${isPositive ? 'text-green-400' : 'text-red-400'}`}>
                 <span className="text-4xl font-bold">{isPositive ? '+' : ''}{change}</span>
                 <span className="text-2xl font-semibold">({changePercent}%)</span>
-                <span className="text-3xl">{isPositive ? '📈' : '📉'}</span>
+                {isPositive ? <TrendingUp size={28} /> : <TrendingDown size={28} />}
               </div>
             </div>
 

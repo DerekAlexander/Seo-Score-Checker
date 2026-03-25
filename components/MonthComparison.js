@@ -1,3 +1,5 @@
+import { TrendingUp, TrendingDown } from 'lucide-react'
+
 export default function MonthComparison({ currentScore, previousScore, change }) {
   const isPositive = change >= 0
   const hasPreviousData = previousScore && previousScore > 0 && previousScore !== currentScore
@@ -9,7 +11,7 @@ export default function MonthComparison({ currentScore, previousScore, change })
         <h2 className="text-2xl font-bold text-white mb-6">Period-over-Period Comparison</h2>
         
         <div className="bg-slate-800/50 rounded-lg p-8 text-center border border-amber-500/30">
-          <div className="text-4xl mb-3">📈</div>
+          <div className="mb-3 flex justify-center"><TrendingUp size={40} className="text-amber-300" /></div>
           <p className="text-amber-300 font-semibold mb-2">Coming Soon</p>
           <p className="text-gray-400 text-sm mb-4">
             Comparison requires at least 2 audit runs to see period-over-period changes.
@@ -47,8 +49,8 @@ export default function MonthComparison({ currentScore, previousScore, change })
 
         {/* Arrow & Change */}
         <div className="flex flex-col items-center justify-center">
-          <div className={`text-6xl mb-4 ${isPositive ? 'text-green-400' : 'text-red-400'}`}>
-            {isPositive ? '📈' : '📉'}
+          <div className={`mb-4 ${isPositive ? 'text-green-400' : 'text-red-400'}`}>
+            {isPositive ? <TrendingUp size={56} /> : <TrendingDown size={56} />}
           </div>
           <div className={`text-3xl font-bold ${isPositive ? 'text-green-400' : 'text-red-400'}`}>
             {isPositive ? '+' : ''}{change}
