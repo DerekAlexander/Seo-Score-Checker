@@ -61,13 +61,20 @@ export async function GET(request) {
  */
 async function getGSCAccessToken() {
   try {
-    const credentialsFile = '/home/hydrodub/.openclaw/workspace/data/gsc_service_account.json'
+    let credentials
     
-    if (!fs.existsSync(credentialsFile)) {
-      throw new Error('GSC service account file not found.')
-    }
+    // Try env first (Vercel), then file (local dev)
+    if (process.env.GOOGLE_SERVICE_ACCOUNT) {
+      credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT)
+    } else {
+      const credentialsFile = '/home/hydrodub/.openclaw/workspace/data/gsc_service_account.json'
+      
+      if (!fs.existsSync(credentialsFile)) {
+        throw new Error('GSC service account not configured. Set GOOGLE_SERVICE_ACCOUNT env variable.')
+      }
 
-    const credentials = JSON.parse(fs.readFileSync(credentialsFile, 'utf8'))
+      credentials = JSON.parse(fs.readFileSync(credentialsFile, 'utf8'))
+    }
     
     // Create JWT claim
     const now = Math.floor(Date.now() / 1000)
