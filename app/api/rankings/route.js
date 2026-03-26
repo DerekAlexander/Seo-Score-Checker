@@ -36,7 +36,9 @@ export async function GET(request) {
     const accessToken = await getGSCAccessToken()
 
     // Fetch top keywords from GSC
+    console.log('Fetching GSC keywords for:', gscProperty)
     const keywords = await fetchGSCKeywords(gscProperty, accessToken)
+    console.log('GSC keywords fetched:', keywords.length)
 
     // Store in database
     const timestamp = new Date().toISOString().split('T')[0] // YYYY-MM-DD
@@ -145,7 +147,9 @@ async function fetchGSCKeywords(gscProperty, accessToken) {
   )
 
   if (!response.ok) {
-    throw new Error(`GSC API error: ${response.status}`)
+    const text = await response.text()
+    console.error('GSC API error:', response.status, text)
+    throw new Error(`GSC API error: ${response.status} - ${text}`)
   }
 
   const data = await response.json()
