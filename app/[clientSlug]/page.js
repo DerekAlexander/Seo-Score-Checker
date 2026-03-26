@@ -9,6 +9,7 @@ import MonthComparison from '@/components/MonthComparison'
 import CompetitorComparison from '@/components/CompetitorComparison'
 import EmailReport from '@/components/EmailReport'
 import PageSpeedFetcher from '@/components/PageSpeedFetcher'
+import RankingsTab from '@/components/RankingsTab'
 import Link from 'next/link'
 
 // Client slug to ID mapping
@@ -23,6 +24,7 @@ export default function ClientDashboard({ params }) {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
   const [isLoadingPageSpeed, setIsLoadingPageSpeed] = useState(false)
+  const [activeTab, setActiveTab] = useState('overview')
 
   const clientId = clientMap[params.clientSlug]
 
@@ -110,6 +112,33 @@ export default function ClientDashboard({ params }) {
               clientUrl={selectedClient.url}
             />
 
+            {/* Tab Navigation */}
+            <div className="flex gap-2 border-b border-slate-700">
+              <button
+                onClick={() => setActiveTab('overview')}
+                className={`px-4 py-3 font-medium transition border-b-2 ${
+                  activeTab === 'overview'
+                    ? 'text-blue-400 border-blue-400'
+                    : 'text-gray-400 border-transparent hover:text-gray-300'
+                }`}
+              >
+                📊 Overview
+              </button>
+              <button
+                onClick={() => setActiveTab('rankings')}
+                className={`px-4 py-3 font-medium transition border-b-2 ${
+                  activeTab === 'rankings'
+                    ? 'text-blue-400 border-blue-400'
+                    : 'text-gray-400 border-transparent hover:text-gray-300'
+                }`}
+              >
+                🎯 Rankings
+              </button>
+            </div>
+
+            {/* Overview Tab */}
+            {activeTab === 'overview' && (
+            <div className="space-y-8">
             {/* Main Score Card */}
             <ScoreCard 
               score={selectedClient.currentScore}
@@ -174,6 +203,16 @@ export default function ClientDashboard({ params }) {
               <EmailReport 
                 clientName={selectedClient.name}
                 onClose={() => setShowEmailModal(false)}
+              />
+            )}
+            </div>
+            )}
+
+            {/* Rankings Tab */}
+            {activeTab === 'rankings' && (
+              <RankingsTab 
+                clientId={selectedClient.id}
+                clientUrl={selectedClient.url}
               />
             )}
           </div>

@@ -1,9 +1,9 @@
 export const dynamic = 'force-dynamic'
 
 import { Pool } from 'pg'
-import fetch from 'node-fetch'
 import fs from 'fs'
 import path from 'path'
+import jwt from 'jsonwebtoken'
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -61,7 +61,6 @@ export async function GET(request) {
  */
 async function getGSCAccessToken() {
   try {
-    const jwt = require('jsonwebtoken')
     const credentialsFile = '/home/hydrodub/.openclaw/workspace/data/gsc_service_account.json'
     
     if (!fs.existsSync(credentialsFile)) {
