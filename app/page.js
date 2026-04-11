@@ -22,7 +22,7 @@ export default function HomePage() {
               performance signals and on-page opportunities that can improve search visibility.
             </p>
 
-            <form className="space-y-3" onSubmit={(event) => event.preventDefault()}>
+            <form className="space-y-3">
               <label htmlFor="website-url" className="block text-sm font-medium text-gray-300">
                 Website URL
               </label>
